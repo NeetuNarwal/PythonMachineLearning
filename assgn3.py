@@ -48,3 +48,18 @@ rmse1=np.sqrt(mean_squared_error(testy,pred))
 print(rmse1)
 print(model1.score(trainx,trainy))
 print(model1.score(testx,testy))
+
+#new data
+import pandas as pd
+import numpy as np
+import seaborn as sns 
+import matplotlib.pyplot as plt
+#q1
+ndiamond=pd.get_dummies(diamond,drop_first=True)
+#q2
+from sklearn.model_selection import train_test_split
+ndiamond.dropna(axis=0)
+x=ndiamond.drop('price',axis=1,inplace=False)
+y=ndiamond['price']
+trainx,testx,trainy,testy=train_test_split(x,y,test_size=0.3,random_state=0)
+print(trainx.shape,testx.shape,trainy.shape,testy.shape)
